@@ -1,0 +1,43 @@
+@using BlazorAuth.Data
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<DataContext> cxt
+@inject IdentityInformation _identity
+
+<div class="card">
+    <EditForm Model="@post" OnValidSubmit="SubmitUserPostAsync">
+        <DataAnnotationsValidator />
+        <div class="card-header px-5 d-flex justify-content-between align-items-center">
+            <span class="fs-4">New Post</span>
+            <div class="form-check form-switch">
+                <InputCheckbox @bind-Value="post.FriendsOnly" class="form-check-input" role="switch" id="PrivacySwitch" />
+                <label class="form-check-label" for="PrivacySwitch">Friends Only</label>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-floating mt-0">
+                <InputTextArea @bind-Value="post.Text" class="form-control" style="height: 10rem;" placeholder="Tell the world!" />
+                <label for="floatingTextarea">Give us the deets!</label>
+                <ValidationMessage For="@(() => post.Text)" />
+            </div>
+            <button type="submit" class="btn btn-success btn-lg w-50">Post</button>
+        </div>
+    </EditForm>
+</div>
+
+@code{
+
+    [Parameter]
+    public EventCallback UpdateBoard { get; set; }
+    private PostMesssage post = new PostMesssage();
+    private async Task SubmitUserPostAsync()
+    {
+        using (var _cxt = cxt.CreateDbContext())
+        {
+            post.UserId = _identity.UserId;
+            _cxt.AddAsync(post);
+            await _cxt.SaveChangesAsync();
+            post = new PostMesssage();
+            await UpdateBoard.InvokeAsync();
+        }
+    }
+}

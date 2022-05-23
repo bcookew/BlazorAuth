@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<PageTitle>Get Sorted</PageTitle>
+
+<div class="row justify-content-center mt-5 pt-5">
+    <div class="col-auto text-center">
+        <span class="h2">Get your communication</span>
+        <h1 class="display-1 mt-5"><em>Sorted!</em></h1>
+    </div>
+</div>
+<AuthorizeView>
+    <Authorized>
+        <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-auto text-center">
+                <a href="/Dashboard" class="btn btn-lg btn-primary">Dashboard</a>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="row justify-content-center mt-5">
+            <div class="col-auto text-center">
+                <a href="/Identity/Account/Login" class="btn btn-lg btn-primary me-4 mt-2">Login</a>
+                <span class="display-6 align-middle"><em>or</em></span>
+                <a href="/Identity/Account/Register" class="btn btn-lg btn-primary ms-4 mt-2">Register</a>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>

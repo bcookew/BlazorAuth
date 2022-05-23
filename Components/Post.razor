@@ -1,0 +1,55 @@
+@inject IDbContextFactory<DataContext> cxt
+
+<div class="card mt-3">
+    <div class="card-header px-5 d-flex justify-content-between">
+        <span class="fs-5 muted"><em>@postMessage.Author.FirstName <span class="fs-6">wrote:</span></em></span>
+        <span class="fs-5 muted"><em>@postMessage.CreatedAt</em></span>
+    </div>
+    <div class="card-body">
+        <textarea readonly class="form-control-plaintext fs-5" style="height: 10rem; resize: none;" placeholder="Tell the world!" id="floatingTextarea">@postMessage.Text</textarea>
+        @if(comments.Count > 0)
+        {
+            <hr>
+            foreach(Comment c in comments)
+            {
+                <CommentBlock CommentObj="c" />
+            }
+        }
+        <hr>
+        <div class="row text-end">
+            <span class="oi oi-comment-square" @onclick="ToggleNewComment"></span>
+        </div>
+        @if(ShowNewComment)
+        {
+            <NewComment PostId="postMessage.PostId" UpdatePostComments="GetComments" Toggle="ToggleNewComment" />
+        }
+    </div>
+</div>
+
+@code{
+    public bool ShowNewComment { get; set; } = false;
+
+    [Parameter]
+    public PostMesssage postMessage { get; set; }
+    private List<Comment> comments = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetComments();
+    }
+    private void ToggleNewComment()
+    {
+        ShowNewComment = !ShowNewComment;
+    }
+    public async Task GetComments()
+    {
+        using (var _cxt = cxt.CreateDbContext())
+        {
+            var postId = postMessage.PostId;
+            comments = await _cxt.Comments
+                        .Include(c => c.Author)
+                        .Where(c => c.PostId == postId)
+                        .ToListAsync();
+        }
+    }
+}

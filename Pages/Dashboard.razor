@@ -1,0 +1,58 @@
+@page "/dashboard"
+@attribute [Authorize]
+@inject IDbContextFactory<DataContext> _cxt
+@inject IdentityInformation _identity
+
+<PageTitle>Dashboard</PageTitle>
+
+
+<div class="container">
+<UserNav />
+    <div class="row mt-5 pt-5 justify-content-center">
+        <div class="col-auto text-center">
+            @if(User != null)
+            {
+            <img class="border rounded-circle border-secondary border-4 mb-3" src="https://picsum.photos/seed/@User.FirstName/200" alt="">
+            <h1 class="h1 mb-5">@User.FirstName @User.LastName</h1>
+            }
+            <div class="card text-start">
+                <div class="card-header">
+                    <h2 class="card-title">Your Stats:</h2>
+                </div>
+                <div class="card-body">
+                    @if (User == null)
+                    {
+                        <p><em>Loading... Please Stand By</em></p>
+                    }
+                    else
+                    {
+                        <p class="fs-4">Friends: @User.Friends.Count</p>
+                        <p class="fs-4">Posts By You: @User.Posts.Count</p>
+                        <p class="fs-4">Comments By You: @User.Comments.Count</p>
+                        <p class="fs-4">Messages You've Sent: @User.MessagesSent.Count</p>
+                        <p class="fs-4">Messages You've Received: @User.MessagesReceived.Count</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private User User;
+    protected override async Task OnInitializedAsync()
+    {
+        using (var cxt = _cxt.CreateDbContext())
+        {
+            User = await cxt.Users
+            .Include(u => u.Friends.Where(f => f.Confirmed == true))
+            .Include(u => u.Posts)
+            .Include(u => u.MessagesSent)
+            .Include(u => u.MessagesReceived)
+            .Include(u => u.Comments)
+            .SingleOrDefaultAsync(u => u.UserName == _identity.Username);
+        }
+    }
+}

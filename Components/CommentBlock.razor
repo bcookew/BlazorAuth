@@ -1,0 +1,13 @@
+<div class="d-flex flex-column align-items-center">
+    <div class="d-flex w-75 flex-grow justify-content-between">
+        <span class="fs-6"><em>@CommentObj.Author.FirstName wrote</em></span>
+        <span class="fs-6"><em>@CommentObj.CreatedAt</em></span>
+    </div>
+    <hr class="my-0 w-75">
+    <textarea readonly class="form-control-plaintext w-75" style="height: auto; resize: none;">@CommentObj.Text</textarea>
+</div>
+
+@code{
+    [Parameter]
+    public Comment CommentObj { get; set; }
+}

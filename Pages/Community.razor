@@ -1,0 +1,57 @@
+@page "/Community"
+@attribute [Authorize]
+@inject IDbContextFactory<DataContext> cxt
+<div class="container">
+    <UserNav />
+    <div class="row justify-content-center  mt-5 pt-5">
+        <div class="col-auto text-center">
+            <span class="display-1">Community</span>
+        </div>
+    </div>
+    <div class="row justify-content-center  mt-5 pt-5">
+        <div class="col-md-8 text-center px-4">
+            <NewUserPost UpdateBoard="GetPosts"/>
+        </div>
+        <div class="row justify-content-center  mt-5">
+            <div class="col-md-8 text-center">
+                <div class="card">
+                    <div class="card-header px-5">
+                        <ul class="nav nav-tabs nav-fill">
+                            <li class="nav-item">
+                                <button class="nav-link active">Public</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link">Friends</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body p-5">
+                        @if(Posts.Count > 0)
+                        {
+                            foreach(var p in Posts)
+                            {
+                                <Post postMessage="p" />
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code{
+    private List<PostMesssage> Posts = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetPosts();
+    }
+    public async Task GetPosts()
+    {
+        using (var _cxt = cxt.CreateDbContext())
+        {
+            Posts = await _cxt.Posts.Include(p => p.Author).ToListAsync();
+        }
+    }
+}

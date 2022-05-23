@@ -1,0 +1,95 @@
+@page "/Friends"
+@attribute [Authorize]
+@inject IDbContextFactory<DataContext> _cxt
+@inject IdentityInformation _identity
+
+<PageTitle>Friends</PageTitle>
+
+
+<div class="container">
+    <UserNav />
+    <div class="row mt-5 pt-5 justify-content-center">
+        <div class="col-3 text-center">
+            <h1>Search for friends</h1>
+            <input type="search" @bind="SearchTerm" @bind:event="oninput" />
+            @if (UserList != null && !string.IsNullOrWhiteSpace(SearchTerm))
+            {
+                var Results = UserList.Where(u => (u.FirstName.ToLower().Contains(SearchTerm.ToLower()) || u.LastName.ToLower().Contains(SearchTerm.ToLower()))).Take(2).ToList();
+                foreach(var result in Results)
+                {
+                    <p class="fs-5">@result.FirstName @result.LastName <span class="oi oi-plus" @onclick="() => AddFriend(result.Id)"></span></p>
+                }
+            }
+        </div>
+        <div class="col-3 text-center">
+            <h1>Friends Requested</h1>
+            @if (RelationshipList != null && RelationshipList.Count > 0)
+            {
+                foreach(var r in RelationshipList.Where(r => r.UserId == _identity.UserId && r.Confirmed == false))
+                {
+                    <p>@r.Friend.FirstName <span class="oi oi-plus" @onclick="() => RemoveFriend(r.FriendId)"></span></p>
+                }
+            }
+        </div>
+        <div class="col-3 text-center">
+            <h1>Friends</h1>
+            @if (RelationshipList != null && RelationshipList.Count > 0)
+            {
+                foreach(var r in RelationshipList.Where(r => r.UserId == _identity.UserId && r.Confirmed == true))
+                {
+                    <p>@r.Friend.FirstName <span class="oi oi-plus" @onclick="() => RemoveFriend(r.FriendId)"></span></p>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private List<Relationship> RelationshipList;
+    private List<User> UserList;
+    private string SearchTerm;
+    
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateRelationshipList();
+    }
+    private async Task UpdateRelationshipList()
+    {
+        using (var cxt = _cxt.CreateDbContext())
+        {
+            RelationshipList = await cxt.Relationships
+            .Include(r => r.User)
+            .Include(r => r.Friend)
+            .ToListAsync();
+            UserList = await cxt.Users.ToListAsync();
+        }
+    }
+
+    public async Task AddFriend(string friendId)
+    {
+        Relationship r = new Relationship();
+        r.UserId = _identity.UserId;
+        r.FriendId = friendId;
+        using (var cxt = _cxt.CreateDbContext())
+        {
+            cxt.Add(r);
+            await cxt.SaveChangesAsync();
+            await UpdateRelationshipList();
+        }
+    }
+    
+    public async Task RemoveFriend(string friendId)
+    {
+        using (var cxt = _cxt.CreateDbContext())
+        {
+            Relationship r = await cxt.Relationships
+                        .SingleOrDefaultAsync(r => r.UserId == _identity.UserId && r.FriendId == friendId);
+            cxt.Remove(r);
+            await cxt.SaveChangesAsync();
+            await UpdateRelationshipList();
+        }
+    }
+}

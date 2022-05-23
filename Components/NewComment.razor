@@ -1,0 +1,42 @@
+@inject IDbContextFactory<DataContext> cxt
+@inject IdentityInformation _identity
+
+<div class="card mt-3">
+    <EditForm Model="@comment" OnValidSubmit="SubmitUserCommentAsync">
+        <DataAnnotationsValidator />
+        <div class="card-header px-5 d-flex justify-content-between">
+            <span class="fs-5">New Comment</span>
+            <span @onclick="Toggle" class="oi oi-x text-muted pt-1" />
+        </div>
+        <div class="card-body">
+            <div class="form-floating mt-0">
+                <InputTextArea @bind-Value="comment.Text" class="form-control" style="height: 10rem;" placeholder="Tell the world!" id="floatingTextarea" />
+                <label for="floatingTextarea">Say the word!</label>
+                <ValidationMessage For="@(() => comment.Text)" />
+            </div>
+            <button type="submit" @onclick="Toggle" class="btn btn-success btn-lg w-50">Post</button>
+        </div>
+    </EditForm>
+</div>
+
+@code{
+    [Parameter]
+    public int PostId { get; set; }
+    [Parameter]
+    public EventCallback Toggle { get; set; }
+    [Parameter]
+    public EventCallback UpdatePostComments { get; set; }
+    private Comment comment = new Comment();
+    private async Task SubmitUserCommentAsync()
+    {
+        using (var _cxt = cxt.CreateDbContext())
+        {
+            comment.PostId = PostId;
+            comment.UserId = _identity.UserId;
+            _cxt.AddAsync(comment);
+            await _cxt.SaveChangesAsync();
+            comment = new Comment();
+            await UpdatePostComments.InvokeAsync();
+        }
+    }
+}

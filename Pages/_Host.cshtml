@@ -1,0 +1,27 @@
+﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@using BlazorAuth.Areas.Identity.Data
+@using BlazorAuth.Data
+@namespace BlazorAuth.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IDbContextFactory<DataContext> _factory
+@{
+    Layout = "_Layout";
+    var state = new InitialApplicationState();
+    state.IsAuthenticated = HttpContext.User.Identity.IsAuthenticated;
+    state.Username = HttpContext.User.Identity.Name;
+    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+    Console.WriteLine(state.IsAuthenticated);
+    Console.WriteLine(state.Username);
+    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
+    if(state.IsAuthenticated == true)
+    {
+        using(var cxt = _factory.CreateDbContext())
+        {
+            User user = await cxt.Users.SingleOrDefaultAsync(u => u.UserName == state.Username);
+            state.UserId = user.Id;
+        }
+    }
+}
+
+<component type="typeof(App)" param-InitialState="state" render-mode="ServerPrerendered" />
