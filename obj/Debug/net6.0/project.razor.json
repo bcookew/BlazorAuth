@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\BlazorAuth.csproj",
+  "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\BlazorAuth.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -11,6 +11,39 @@
   },
   "ProjectWorkspaceState": {
     "TagHelpers": [
+      {
+        "HashCode": -1415939297,
+        "Kind": "Components.Component",
+        "Name": "BlazorAuth.Pages.Community",
+        "AssemblyName": "BlazorAuth",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Community"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorAuth.Pages.Community"
+        }
+      },
+      {
+        "HashCode": -2025036374,
+        "Kind": "Components.Component",
+        "Name": "BlazorAuth.Pages.Community",
+        "AssemblyName": "BlazorAuth",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorAuth.Pages.Community"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorAuth.Pages.Community",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
       {
         "HashCode": -939203941,
         "Kind": "Components.Component",
@@ -16981,128 +17014,128 @@
   "RootNamespace": "BlazorAuth",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Index.razor",
-      "TargetPath": "Pages\\Index.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Dashboard.razor",
-      "TargetPath": "Pages\\Dashboard.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Components\\NewComment.razor",
-      "TargetPath": "Components\\NewComment.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\_Host.cshtml",
-      "TargetPath": "Pages\\_Host.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Friends.razor",
-      "TargetPath": "Pages\\Friends.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\MessageCenter.razor",
-      "TargetPath": "Pages\\MessageCenter.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Community.razor",
-      "TargetPath": "Pages\\Community.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\_IdentityLayout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_IdentityLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Components\\CommentBlock.razor",
-      "TargetPath": "Components\\CommentBlock.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Components\\Post.razor",
-      "TargetPath": "Components\\Post.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Shared\\SurveyPrompt.razor",
-      "TargetPath": "Shared\\SurveyPrompt.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\_Layout.cshtml",
-      "TargetPath": "Pages\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\App.razor",
-      "TargetPath": "App.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Components\\NewUserPost.razor",
-      "TargetPath": "Components\\NewUserPost.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\_Imports.razor",
-      "TargetPath": "_Imports.razor",
-      "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Shared\\MainLayout.razor",
-      "TargetPath": "Shared\\MainLayout.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Shared\\NavMenu.razor",
-      "TargetPath": "Shared\\NavMenu.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Components\\UserNav.razor",
-      "TargetPath": "Components\\UserNav.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Counter.razor",
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Counter.razor",
       "TargetPath": "Pages\\Counter.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "c:\\Users\\Usmig\\OneDrive\\Coding_Dojo\\CSharpBlazorProj\\BlazorAuth\\Pages\\Error.cshtml",
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\_Layout.cshtml",
+      "TargetPath": "Pages\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Components\\NewUserPost.razor",
+      "TargetPath": "Components\\NewUserPost.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Shared\\SurveyPrompt.razor",
+      "TargetPath": "Shared\\SurveyPrompt.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Community.razor",
+      "TargetPath": "Pages\\Community.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Components\\NewComment.razor",
+      "TargetPath": "Components\\NewComment.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\_IdentityLayout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_IdentityLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Components\\UserNav.razor",
+      "TargetPath": "Components\\UserNav.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Components\\CommentBlock.razor",
+      "TargetPath": "Components\\CommentBlock.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Shared\\NavMenu.razor",
+      "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\_Host.cshtml",
+      "TargetPath": "Pages\\_Host.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Shared\\MainLayout.razor",
+      "TargetPath": "Shared\\MainLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Dashboard.razor",
+      "TargetPath": "Pages\\Dashboard.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\MessageCenter.razor",
+      "TargetPath": "Pages\\MessageCenter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Components\\Post.razor",
+      "TargetPath": "Components\\Post.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Pages\\Friends.razor",
+      "TargetPath": "Pages\\Friends.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\App.razor",
+      "TargetPath": "App.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usmig\\Dev_Work\\Training\\Coding_Dojo_Projects\\BlazorAuth\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     }
   ],
